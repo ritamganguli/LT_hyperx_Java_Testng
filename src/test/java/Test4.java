@@ -30,7 +30,7 @@ public class Test4
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "HyperExecute -Demonstration of the TestNG Framework");
-        capabilities.setCapability("name", "[HyperExecute - 4] Demonstration of the TestNG Framework");
+        capabilities.setCapability("build", System.getenv("LT_BUILD_NAME"));
 
         capabilities.setCapability("platform", System.getenv("HYPEREXECUTE_PLATFORM"));
         capabilities.setCapability("browserName", browser);
