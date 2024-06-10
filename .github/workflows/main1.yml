@@ -39,6 +39,7 @@ jobs:
           export LT_USERNAME=${{ github.event.inputs.username }}
           export LT_ACCESS_KEY=${{ github.event.inputs.accessKey }}
           export LT_BUILD_NAME="HyperExecute -Demonstration of the TestNG Framework"
+          echo $LT_BUILD_NAME
           echo $LT_USERNAME
           echo $LT_ACCESS_KEY
           mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=${{ matrix.test }}
