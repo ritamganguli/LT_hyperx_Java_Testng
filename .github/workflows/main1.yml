@@ -1,0 +1,43 @@
+name: Github Actions
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
+        description: LT Username
+      accessKey:
+        required: true
+        description: LT Access Key
+      sampleRepoLink:
+        required: true
+        default: https://github.com/ritamganguli/LT_hyperx_Java_Testng.git
+        description: Link to the HyperExecute sample repo
+
+jobs:
+  HyperExecute-Selenium:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+        test: ["Test_1", "Test_2", "Test_3", "Test_4"]  # Include the test names in the matrix
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Starting CLI testing
+        id: testng
+        shell: bash
+        run: |
+          echo "STEP 1 ) Downloading sample suite"
+          git clone ${{ github.event.inputs.sampleRepoLink }}
+          echo "STEP 2) Download CLI and setting environment variables"
+          cd LT_hyperx_Java_Testng
+          curl https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe -o hyperexecute.exe
+          export LT_USERNAME=${{ github.event.inputs.username }}
+          export LT_ACCESS_KEY=${{ github.event.inputs.accessKey }}
+          echo $LT_USERNAME
+          echo $LT_ACCESS_KEY
+          mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=${{ matrix.test }}
