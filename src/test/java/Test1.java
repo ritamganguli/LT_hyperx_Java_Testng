@@ -22,6 +22,8 @@ public class Test1
 //    String testURL = "https://todomvc.com/examples/react/#/";
     String testURL = "https://lambdatest.github.io/sample-todo-app/";
     String testURLTitle = "Sample page - lambdatest.com";
+    String build_name=System.getenv("LT_BUILD_NAME");
+    System.out.println(build_name);
     @BeforeMethod
     @Parameters(value={"browser","version","platform", "resolution"})
     public void testSetUp(String browser, String version, String platform, String resolution) throws Exception
@@ -30,7 +32,7 @@ public class Test1
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("build", System.getenv("LT_BUILD_NAME"));
+        capabilities.setCapability("build",build_name);
         System.out.println(System.getenv("LT_BUILD_NAME")));
         capabilities.setCapability("name", "[HyperExecute - 1] Demonstration of the TestNG Framework");
         capabilities.setCapability("platform", System.getenv("HYPEREXECUTE_PLATFORM"));
