@@ -1,4 +1,4 @@
-name: Github Actions
+name: Run On HyperX
 on:
   workflow_dispatch:
     inputs:
