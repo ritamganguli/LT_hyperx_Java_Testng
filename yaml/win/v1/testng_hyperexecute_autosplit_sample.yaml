@@ -15,6 +15,7 @@ concurrency: 4
 env:
   # PAT: ${{ .secrets.testKey }}
   CACHE_DIR: m2_cache_dir
+  LT_BUILD_NAME: "HyperExecute -Demonstration of the TestNG Framework"
 
 cacheKey: '{{ checksum "pom.xml" }}'
 cacheDirectories:
