@@ -32,7 +32,7 @@ public class Test1
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("build",build_name);
-        capabilities.setCapability("name", "[HyperExecute - 1] Demonstration of the TestNG Framework");
+        capabilities.setCapability("name", "[Test - 1] Demonstration of the TestNG Framework");
         capabilities.setCapability("platform","win11");
         capabilities.setCapability("browserName", browser);
         capabilities.setCapability("version", version);
