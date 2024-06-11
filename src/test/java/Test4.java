@@ -17,6 +17,7 @@ public class Test4
     public static String status = "passed";
     String username = Test1.username;
     String access_key = Test1.access_key;
+    String build_name=System.getenv("LT_BUILD_NAME");
 
 //    String testURL = "https://todomvc.com/examples/react/#/";
     String testURL = "https://lambdatest.github.io/sample-todo-app/";
@@ -29,7 +30,7 @@ public class Test4
         String platformName = System.getenv("HYPEREXECUTE_PLATFORM") != null ? System.getenv("HYPEREXECUTE_PLATFORM") : platform;
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("build", "HyperExecute -Demonstration of the TestNG Framework");
+        capabilities.setCapability("build",build_name);
         capabilities.setCapability("build", System.getenv("LT_BUILD_NAME"));
 
         capabilities.setCapability("platform", System.getenv("HYPEREXECUTE_PLATFORM"));
