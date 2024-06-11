@@ -7,15 +7,12 @@ testSuiteStep: 150
 runson: win
 
 autosplit: true
-retryOnFailure: true
-
-maxRetries: 5
 concurrency: 4
 
 env:
   # PAT: ${{ .secrets.testKey }}
   CACHE_DIR: m2_cache_dir
-  LT_BUILD_NAME: "HyperExecute -Demonstration of the TestNG Framework"
+  # LT_BUILD_NAME: "HyperExecute -Demonstration of the TestNG Framework"
 
 cacheKey: '{{ checksum "pom.xml" }}'
 cacheDirectories:
@@ -25,6 +22,7 @@ pre:
   # Download and install packages in the CACHE_DIR.
   # Skip execution of the tests in the pre step
   - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+  - echo $LT_BUILD_NAME
 
 post:
   - cat yaml/win/v1/testng_hyperexecute_autosplit_sample.yaml
