@@ -41,4 +41,4 @@ jobs:
           echo $LT_BUILD_NAME
           echo $LT_USERNAME
           echo $LT_ACCESS_KEY
-          ./hyperexecute --user $LT_USERNAME --key $LT_ACCESS_KEY --config yaml/win/testng_hyperexecute_autosplit_sample.yaml --download-artifacts --download-report
+          ./hyperexecute --user $LT_USERNAME --key $LT_ACCESS_KEY --config yaml/win/yaml/win11/testng_hyperexecute_matrix_sample.yaml --download-artifacts --download-report
