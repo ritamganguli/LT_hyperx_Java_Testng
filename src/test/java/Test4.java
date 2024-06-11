@@ -31,7 +31,7 @@ public class Test4
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build",build_name);
-        capabilities.setCapability("build", System.getenv("LT_BUILD_NAME"));
+        capabilities.setCapability("name", "[Test - 4] Demonstration of the TestNG Framework");
 
         capabilities.setCapability("platform", System.getenv("HYPEREXECUTE_PLATFORM"));
         capabilities.setCapability("browserName", browser);
