@@ -8,6 +8,9 @@ on:
       accessKey:
         required: true
         description: LT Access Key
+      build:
+        required: true
+        description: LT Access Build
       sampleRepoLink:
         required: true
         default: https://github.com/ritamganguli/LT_hyperx_Java_Testng.git
@@ -37,7 +40,7 @@ jobs:
           cd LT_hyperx_Java_Testng
           export LT_USERNAME=${{ github.event.inputs.username }}
           export LT_ACCESS_KEY=${{ github.event.inputs.accessKey }}
-          export LT_BUILD_NAME="Standard -Demonstration of the TestNG Framework"
+          export LT_BUILD_NAME=${{ github.event.inputs.build }}
           echo $LT_BUILD_NAME
           echo $LT_USERNAME
           echo $LT_ACCESS_KEY
