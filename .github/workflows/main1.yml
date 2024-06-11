@@ -42,4 +42,4 @@ jobs:
           echo $LT_BUILD_NAME
           echo $LT_USERNAME
           echo $LT_ACCESS_KEY
-          mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=${{ matrix.test }}
+          mvn test -Dplatname=win -DselectedTests=${{ matrix.test }}
